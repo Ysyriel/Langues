@@ -1,6 +1,7 @@
 #ifndef CASE_H
 #define CASE_H 
 
+
 //==============================
 //    INCLUDES
 //==============================
@@ -8,9 +9,9 @@
 #include <cstdio>
 #include <cstdlib>
 #include <vector>
-#include "Cell.h"
-#include "CellA.h"
-#include "CellB.h" 
+#include <cmath>
+
+using std::vector;
 
 /**
  * @class Case
@@ -21,13 +22,10 @@ class Case
 {
 
 public:
-
 //==============================
 //    CONSTRUCTORS
 //==============================
-
 Case();
-Case(vector <float> organites, char c);
 
 //==============================
 //    DESTRUCTOR
@@ -35,44 +33,28 @@ Case(vector <float> organites, char c);
 ~Case();
 
 //==============================
-//    GETTERS
-//==============================
-
-vector <float> organites();
-vector <float> phen();
-
- 
-//==============================
-//    SETTERS
-//==============================
-void set_cell(char c);
-void set_cell(char c, vector <float> conc);
-void set_organites( vector <float> org );
-
-//==============================
-//    OPERATORS
-//==============================
-
-//==============================
-//    PUBLIC METHODS
-//==============================
-  
-void reset(float Ainit);
-int containsA();
-void death();
-void metabolism();
-int isEmpty();
-vector <float> division();
-float fitness();
-  
-protected:
-
-//==============================
 //    ATTRIBUTES
 //==============================
 
-vector<float> organites_;
-Cell * cell_;
+vector <float> RVB; //R: lexique, V: prononciation, B: syntaxe
+float ressources;
+float d; //coefficient de diffusion
+float pop; //population
+//int x;
+//int y; //coordonnées
+float mortalite;
+float natalite;
+const float SEUIL = 50;
+const float SIGMUTLEX = 0.01; //ecart type de mutation du lexique
+const float SIGMUTPRON = 0.01;//ecart type de mutation de la prononciation
+const float SIGMUTSYNT = 0.01;//ecart type de mutation de la syntaxe
+
+//==============================
+//    FUNCTIONS
+//==============================
+void mutations();
+float randN(float sig, float mu);
+	
 };
 
 #endif // CASE_H
