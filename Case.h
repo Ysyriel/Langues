@@ -26,7 +26,7 @@ public:
 //    CONSTRUCTORS
 //==============================
 Case();
-
+Case(float pop_, float ressources_);
 //==============================
 //    DESTRUCTOR
 //==============================
@@ -54,7 +54,7 @@ const float SIGMUTSYNT = 0.01;//ecart type de mutation de la syntaxe
 //==============================
 void mutations();
 float randN(float sig, float mu);
-	
+float distancelangue(Case b);
 };
 
 #endif // CASE_H

@@ -19,8 +19,8 @@ public:
 //    CONSTRUCTORS
 //==============================
 
+Environnement(int H_, int L_);
 Environnement();
-
 //==============================
 //    ATTRIBUTES
 //==============================
@@ -35,6 +35,8 @@ int L; //largeur
 
 void showpop();
 void showressources();
+void allmutations();
+float laplacien(int i, int j);
 };
 
 

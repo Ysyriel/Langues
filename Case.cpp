@@ -6,7 +6,7 @@
 #include <cstdio>
 #include <cstdlib>
 #include <vector>
-
+#include <time.h>
 //==============================
 //    CONSTRUCTORS
 //==============================
@@ -23,7 +23,14 @@ Case::Case(){
 	mortalite=SEUIL/100-natalite;
 }
 
-
+Case::Case(float pop_, float ressources_){
+	RVB = {125,125,125};
+	ressources = ressources_;
+	d=1;
+	pop=pop_;
+	natalite=ressources/100;
+	mortalite=SEUIL/100-natalite;
+}
 //==============================
 //    DESTRUCTOR
 //==============================
@@ -56,4 +63,15 @@ float Case::randN(float sig, float mu){
 	float randn = sqrt(-2.0*log(a))*cos(2.0*M_PI*a);
 	return randn*sig+mu;
 }
-	
+
+float Case::distancelangue(Case b){
+	float Ra=RVB[0];
+	float Va=RVB[1];
+	float Ba=RVB[2];
+	float Rb=b.RVB[0];
+	float Vb=b.RVB[1];
+	float Bb=b.RVB[2];
+	return sqrt(pow((Rb-Ra),2) + pow((Vb-Va),2) + pow((Bb-Ba),2));
+}
+
+

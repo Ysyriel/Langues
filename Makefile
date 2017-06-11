@@ -8,7 +8,8 @@ Case.o : Case.cpp Case.h
 	g++ -g -c -Wall  Case.cpp -o Case.o -std=c++11
 
 main.o : main.cpp Case.cpp Case.h Environnement.cpp Environnement.h
-	g++ -g -c -Wall main.cpp -o main.o -std=c++11
+	g++ -g -c -Wall main.cpp -o main.o  engdemo.cpp -o mycpp -std=c++11
 
 clean:
 	rm -f *.o
+
